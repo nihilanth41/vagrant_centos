@@ -14,8 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "centos68"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  #config.vm.box = "centos68_bb"
-  config.vm.box = "package.box"
+  config.vm.box = "zrrm74/centos68"
 
   # Port forwarding example:
   # config.vm.network :forwarded_port, guest: 80, host: 80 # Apache 
@@ -29,7 +28,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   config.ssh.insert_key = false
 
-  #config.vm.provision :shell, inline: "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile", :privileged =>false
   config.vm.provision :shell, path: "./scripts/bootstrap.sh", :args => shared_dir
 
   if File.exist?("./scripts/custom.sh") then
