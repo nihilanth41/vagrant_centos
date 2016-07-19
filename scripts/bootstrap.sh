@@ -10,13 +10,11 @@ if [ ! -d "$DOWNLOAD_DIR" ]; then
   mkdir -p "$DOWNLOAD_DIR"
 fi
 
-yum -y install git vim-enhanced wget 
+yum -y install git vim-enhanced wget gcc kernel-devel make ncurses-devel man man-pages
 
 cd /etc/yum.repos.d/
 wget http://download.opensuse.org/repositories/utilities/CentOS_6/utilities.repo
 yum -y install rcm
-
-yum -y install gcc kernel-devel make ncurses-devel
 
 # Tmux 1.8
 
