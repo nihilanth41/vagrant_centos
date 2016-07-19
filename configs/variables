@@ -1,0 +1,7 @@
+#!/bin/bash
+
+HOME_DIR="/home/zrr"
+
+# SHARED_DIR comes from shell provisioner in Vagrantfile
+DOWNLOAD_DIR="$SHARED_DIR/downloads"
+
