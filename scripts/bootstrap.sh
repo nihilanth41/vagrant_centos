@@ -10,7 +10,7 @@ if [ ! -d "$DOWNLOAD_DIR" ]; then
   mkdir -p "$DOWNLOAD_DIR"
 fi
 
-yum -y install vim-enhanced wget gcc kernel-devel make ncurses-devel man man-pages epel-release yum-utils
+yum -y install vim-enhanced wget gcc kernel-devel make ncurses-devel man man-pages epel-release yum-utils unzip
 yum -y install libcurl-devel perl-ExtUtils-MakeMaker.x86_64 gettext
 
 curl http://download.opensuse.org/repositories/utilities/CentOS_6/utilities.repo -O /etc/yum.repos.d/utilities.repo
