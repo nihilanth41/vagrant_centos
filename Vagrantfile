@@ -17,7 +17,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "zrrm74/centos68"
 
   # Port forwarding example:
-  # config.vm.network :forwarded_port, guest: 80, host: 80 # Apache 
+  config.vm.network :forwarded_port, guest: 8000, host: 8000 
+  config.vm.network :forwarded_port, guest: 8080, host: 8080 
 
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", '3000']

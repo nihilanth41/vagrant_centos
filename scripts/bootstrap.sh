@@ -10,12 +10,10 @@ if [ ! -d "$DOWNLOAD_DIR" ]; then
   mkdir -p "$DOWNLOAD_DIR"
 fi
 
-yum -y install vim-enhanced wget gcc kernel-devel make ncurses-devel man man-pages epel-release yum-utils unzip
-yum -y install libcurl-devel perl-ExtUtils-MakeMaker.x86_64 gettext
+curl http://download.opensuse.org/repositories/utilities/CentOS_6/utilities.repo -o "/etc/yum.repos.d/utilities.repo"
 
-curl http://download.opensuse.org/repositories/utilities/CentOS_6/utilities.repo -O /etc/yum.repos.d/utilities.repo
-yum -y install rcm
-
+yum -y install vim-enhanced wget gcc kernel-devel make ncurses-devel man man-pages epel-release yum-utils unzip libcurl-devel perl-ExtUtils-MakeMaker.x86_64 gettext zlib-devel \
+java-1.8.0-openjdk java-1.8.0-openjdk-devel rcm
 
 # Libevent2
 if [ ! -f "$DOWNLOAD_DIR/libevent-2.0.22-stable.tar.gz" ]; then
@@ -54,9 +52,10 @@ fi
 cd /tmp
 tar -xvzf "git-$GIT_VERSION.tar.gz"
 cd "git-$GIT_VERSION"
-./configure 
-make prefix=/usr/local all NO_TCLTK=YesPlease
-make prefix=/usr/local install 
+make configure
+./configure --prefix=/usr/local
+make all NO_TCLTK=YesPlease
+make install 
 
 
 
